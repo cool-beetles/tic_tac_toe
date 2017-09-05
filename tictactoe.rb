@@ -13,12 +13,13 @@ def user
   }
 
   puts "Player X"
-  puts "Take square, ex. a1, b3:"
+  puts "Take square, e.g. a1, b3:"
 while  selected_move=gets.chomp.to_s
 
   selected_move_position = moves.find_index(selected_move)
+  selected_move_value = board[selected_move_position]
   board.each do |position, move|
-    if move == "X"
+    if  selected_move_value == "X"
       puts "Ivalid move!"
     else position == selected_move_position
       board[selected_move_position] = "X"
