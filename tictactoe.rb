@@ -1,5 +1,5 @@
 def game
-  players = ["Player X", "Player O"]
+  players = ["X", "O"]
   board = {
     "a1" => "",
     "a2" => "",
@@ -11,26 +11,34 @@ def game
     "c2" => "",
     "c3" => "" 
   }
- 
-  puts "#{players[0]}"
-  puts "Take square, e.g. a1, b3: "
-  while  selected_move_x = gets.chomp
 
-    if (board[selected_move_x] == "X") || (board[selected_move_x] == "O")
+
+  current_user = players[0]
+  puts "Player #{current_user}"
+  puts "Take square, e.g. a1, b3: "
+while  selected_move = gets.chomp
+
+    if (board[selected_move] == "X") || (board[selected_move] == "O")
       puts "Ivalid move!"
-    elsif board[selected_move_x] = "X"
+    else 
+      board[selected_move] = "#{current_user}"
       
-      if ((board["a1"] == "X" && board["a2"] == "X" && board["a3"] == "X") ||
-        (board["b1"] == "X" && board["b2"] == "X" && board["b3"] == "X") ||
-        (board["c1"] == "X" && board["c2"] == "X" && board["c3"] == "X") ||
-        (board["a2"] == "X" && board["b2"] == "X" && board["c2"] == "X") ||
-        (board["a1"] == "X" && board["b1"] == "X" && board["c1"] == "X") ||
-        (board["a1"] == "X" && board["a2"] == "X" && board["a3"] == "X") ||
-        (board["a3"] == "X" && board["b3"] == "X" && board["c3"] == "X") ||
-        (board["a1"] == "X" && board["b2"] == "X" && board["c3"] == "X") ||
-        (board["c1"] == "X" && board["b2"] == "X" && board["a3"] == "X"))
-        return "The winner is: #{players[0]}"
+      if ((board["a1"] == ("X" || "O") && board["a2"] == ("X" || "O") && board["a3"] == ("X" || "O")) ||
+        (board["b1"] == ("X" || "O") && board["b2"] == ("X" || "O") && board["b3"] == ("X" || "O")) ||
+        (board["c1"] == ("X" || "O") && board["c2"] == ("X" || "O") && board["c3"] == ("X" || "O")) ||
+        (board["a2"] == ("X" || "O") && board["b2"] == ("X" || "O") && board["c2"] == ("X" || "O")) ||
+        (board["a1"] == ("X" || "O") && board["b1"] == ("X" || "O") && board["c1"] == ("X" || "O")) ||
+        (board["a1"] == ("X" || "O") && board["a2"] == ("X" || "O") && board["a3"] == ("X" || "O")) ||
+        (board["a3"] == ("X" || "O") && board["b3"] == ("X" || "O") && board["c3"] == ("X" || "O")) ||
+        (board["a1"] == ("X" || "O") && board["b2"] == ("X" || "O") && board["c3"] == ("X" || "O")) ||
+        (board["c1"] == ("X" || "O") && board["b2"] == ("X" || "O") && board["a3"] == ("X" || "O")))
+        puts "The winner is: #{current_user}"  
       end
+  #zmiana gracza
+      current_user = players[1]
+      puts "Player #{current_user}"
+      puts "Take square, e.g. a1, b3: "
+
     end
 
   puts "#{board["a1"]} #{board["a2"]}  #{board["a3"]}"
