@@ -12,12 +12,12 @@ def game
     "c3" => "" 
   }
 
-
   current_user = players[0]
+
   puts "Player #{current_user}"
   puts "Take square, e.g. a1, b3: "
-while  selected_move = gets.chomp
-
+while selected_move = gets.chomp
+    
     if (board[selected_move] == "X") || (board[selected_move] == "O")
       puts "Ivalid move!"
     else 
@@ -33,19 +33,29 @@ while  selected_move = gets.chomp
         (board["a1"] == ("X" || "O") && board["b2"] == ("X" || "O") && board["c3"] == ("X" || "O")) ||
         (board["c1"] == ("X" || "O") && board["b2"] == ("X" || "O") && board["a3"] == ("X" || "O")))
         puts "The winner is: #{current_user}"  
+      elsif ((board["a1"] != ("")) && (board["a2"] != ("")) && (board["a3"] != ("")) &&
+        (board["b1"] != ("")) && (board["b2"] != ("")) && (board["b3"] != ("")) &&
+        (board["c1"] != ("")) && (board["c2"] != ("")) && (board["c3"] != (""))) &&
+        !((board["a1"] == ("X" || "O") && board["a2"] == ("X" || "O") && board["a3"] == ("X" || "O")) ||
+        (board["b1"] == ("X" || "O") && board["b2"] == ("X" || "O") && board["b3"] == ("X" || "O")) ||
+        (board["c1"] == ("X" || "O") && board["c2"] == ("X" || "O") && board["c3"] == ("X" || "O")) ||
+        (board["a2"] == ("X" || "O") && board["b2"] == ("X" || "O") && board["c2"] == ("X" || "O")) ||
+        (board["a1"] == ("X" || "O") && board["b1"] == ("X" || "O") && board["c1"] == ("X" || "O")) ||
+        (board["a1"] == ("X" || "O") && board["a2"] == ("X" || "O") && board["a3"] == ("X" || "O")) ||
+        (board["a3"] == ("X" || "O") && board["b3"] == ("X" || "O") && board["c3"] == ("X" || "O")) ||
+        (board["a1"] == ("X" || "O") && board["b2"] == ("X" || "O") && board["c3"] == ("X" || "O")) ||
+        (board["c1"] == ("X" || "O") && board["b2"] == ("X" || "O") && board["a3"] == ("X" || "O")))
+        puts "It's a draw"
       end
-  #zmiana gracza
-      current_user = players[1]
-      puts "Player #{current_user}"
-      puts "Take square, e.g. a1, b3: "
+  
+    puts "#{board["a1"]} #{board["a2"]}  #{board["a3"]}"
+    puts "#{board["b1"]} #{board["b2"]}  #{board["b3"]}"
+    puts "#{board["c1"]} #{board["c2"]}  #{board["c3"]}"
+    
+    current_user = players[1]
+    puts "Player #{current_user}"
+    puts "Take square, e.g. a1, b3: "
 
     end
-
-  puts "#{board["a1"]} #{board["a2"]}  #{board["a3"]}"
-  puts "#{board["b1"]} #{board["b2"]}  #{board["b3"]}"
-  puts "#{board["c1"]} #{board["c2"]}  #{board["c3"]}"
   end
-
-rescue
-  return "Allowed moves: #{board.keys}"
 end
