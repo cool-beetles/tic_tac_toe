@@ -22,15 +22,15 @@ while  selected_move = gets.chomp
   elsif board.include?(selected_move)
     board[selected_move] = "#{current_user}"
 
-    if ((board["a1"] == ("X" || "O") && board["a2"] == ("X" || "O") && board["a3"] == ("X" || "O")) ||
-      (board["b1"] == ("X" || "O") && board["b2"] == ("X" || "O") && board["b3"] == ("X" || "O")) ||
-      (board["c1"] == ("X" || "O") && board["c2"] == ("X" || "O") && board["c3"] == ("X" || "O")) ||
-      (board["a2"] == ("X" || "O") && board["b2"] == ("X" || "O") && board["c2"] == ("X" || "O")) ||
-      (board["a1"] == ("X" || "O") && board["b1"] == ("X" || "O") && board["c1"] == ("X" || "O")) ||
-      (board["a1"] == ("X" || "O") && board["a2"] == ("X" || "O") && board["a3"] == ("X" || "O")) ||
-      (board["a3"] == ("X" || "O") && board["b3"] == ("X" || "O") && board["c3"] == ("X" || "O")) ||
-      (board["a1"] == ("X" || "O") && board["b2"] == ("X" || "O") && board["c3"] == ("X" || "O")) ||
-      (board["c1"] == ("X" || "O") && board["b2"] == ("X" || "O") && board["a3"] == ("X" || "O")))
+    if ((board["a1"] == ("#{current_user}") && board["a2"] == ("#{current_user}") && board["a3"] == ("#{current_user}")) ||
+      (board["b1"] == ("#{current_user}") && board["b2"] == ("#{current_user}") && board["b3"] == ("#{current_user}")) ||
+      (board["c1"] == ("#{current_user}") && board["c2"] == ("#{current_user}") && board["c3"] == ("#{current_user}")) ||
+      (board["a2"] == ("#{current_user}") && board["b2"] == ("#{current_user}") && board["c2"] == ("#{current_user}")) ||
+      (board["a1"] == ("#{current_user}") && board["b1"] == ("#{current_user}") && board["c1"] == ("#{current_user}")) ||
+      (board["a1"] == ("#{current_user}") && board["a2"] == ("#{current_user}") && board["a3"] == ("#{current_user}")) ||
+      (board["a3"] == ("#{current_user}") && board["b3"] == ("#{current_user}") && board["c3"] == ("#{current_user}")) ||
+      (board["a1"] == ("#{current_user}") && board["b2"] == ("#{current_user}") && board["c3"] == ("#{current_user}")) ||
+      (board["c1"] == ("#{current_user}") && board["b2"] == ("#{current_user}") && board["a3"] == ("#{current_user}")))
       return "The winner is: #{current_user}" 
     elsif ((board["a1"] != ("")) && (board["a2"] != ("")) && (board["a3"] != ("")) &&
       (board["b1"] != ("")) && (board["b2"] != ("")) && (board["b3"] != ("")) &&
@@ -40,14 +40,13 @@ while  selected_move = gets.chomp
 
     if current_user == players[0]
       current_user = players[1]
-      puts "Player #{current_user}"
-      puts "Take square, e.g. a1, b3: "
     else
       current_user = players[0]
-      puts "Player #{current_user}"
-      puts "Take square, e.g. a1, b3: "
     end
 
+  puts "Player #{current_user}"
+  puts "Take square, e.g. a1, b3: "
+  
   else
     puts "Allowed moves #{board.keys}"
   end
