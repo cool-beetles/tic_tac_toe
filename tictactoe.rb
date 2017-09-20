@@ -23,6 +23,7 @@ end
 def save_move(selected_move)
   if @board.include?(selected_move)
     @board[selected_move] = @current_user
+  return @board[selected_move] = @current_user
   else
     return "Allowed moves #{@board.keys}"
   end
@@ -39,7 +40,11 @@ def check_winner(current_user)
     (@board["a1"] == @current_user && @board["b2"] == @current_user && @board["c3"] == @current_user) ||
     (@board["c1"] == @current_user && @board["b2"] == @current_user && @board["a3"] == @current_user))
     return "The winner is: #{@current_user}" 
-  elsif ((@board["a1"] != ("")) && (@board["a2"] != ("")) && (@board["a3"] != ("")) &&
+  end
+end
+
+def check_draw(current_user)
+  if ((@board["a1"] != ("")) && (@board["a2"] != ("")) && (@board["a3"] != ("")) &&
     (@board["b1"] != ("")) && (@board["b2"] != ("")) && (@board["b3"] != ("")) &&
     (@board["c1"] != ("")) && (@board["c2"] != ("")) && (@board["c3"] != ("")))
     return "It's a draw"
@@ -53,4 +58,10 @@ def change_active_user(current_user)
     @current_user = @players[0]
   end
   return @current_user
+end
+
+def display_board
+  puts "#{@board["a1"]} #{@board["a2"]}  #{@board["a3"]}"
+  puts "#{@board["b1"]} #{@board["b2"]}  #{@board["b3"]}"
+  puts "#{@board["c1"]} #{@board["c2"]}  #{@board["c3"]}"
 end
