@@ -16,20 +16,19 @@ end
  
 def check_taken_square(selected_move)    
   if (@board[selected_move] == "X") || (@board[selected_move] == "O")
-    return "Ivalid move!"
+    "Ivalid move!"
   end
 end
 
 def save_move(selected_move)
   if @board.include?(selected_move)
     @board[selected_move] = @current_user
-  return @board[selected_move] = @current_user
   else
-    return "Allowed moves #{@board.keys}"
+    "Allowed moves #{@board.keys}"
   end
 end
 
-def check_winner(current_user)
+def check_winner
   if ((@board["a1"] == @current_user && @board["a2"] == @current_user && @board["a3"] == @current_user) ||
     (@board["b1"] == @current_user && @board["b2"] == @current_user && @board["b3"] == @current_user) ||
     (@board["c1"] == @current_user && @board["c2"] == @current_user && @board["c3"] == @current_user) ||
@@ -39,15 +38,15 @@ def check_winner(current_user)
     (@board["a3"] == @current_user && @board["b3"] == @current_user && @board["c3"] == @current_user) ||
     (@board["a1"] == @current_user && @board["b2"] == @current_user && @board["c3"] == @current_user) ||
     (@board["c1"] == @current_user && @board["b2"] == @current_user && @board["a3"] == @current_user))
-    return "The winner is: #{@current_user}" 
+    "The winner is: #{@current_user}" 
   end
 end
 
-def check_draw(current_user)
+def check_draw
   if ((@board["a1"] != ("")) && (@board["a2"] != ("")) && (@board["a3"] != ("")) &&
     (@board["b1"] != ("")) && (@board["b2"] != ("")) && (@board["b3"] != ("")) &&
     (@board["c1"] != ("")) && (@board["c2"] != ("")) && (@board["c3"] != ("")))
-    return "It's a draw"
+    "It's a draw"
   end
 end
 
@@ -57,11 +56,10 @@ def change_active_user(current_user)
   else
     @current_user = @players[0]
   end
-  return @current_user
 end
 
 def display_board
-  puts "#{@board["a1"]} #{@board["a2"]}  #{@board["a3"]}"
-  puts "#{@board["b1"]} #{@board["b2"]}  #{@board["b3"]}"
-  puts "#{@board["c1"]} #{@board["c2"]}  #{@board["c3"]}"
+"#{@board["a1"]} #{@board["a2"]}  #{@board["a3"]} 
+#{@board["b1"]} #{@board["b2"]}  #{@board["b3"]}
+#{@board["c1"]} #{@board["c2"]}  #{@board["c3"]}"
 end
