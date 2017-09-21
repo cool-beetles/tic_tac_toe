@@ -11,10 +11,12 @@ while game_on
   puts check_taken_square(selected_move)
   check_taken_square(selected_move)
   puts save_move(selected_move)
-  puts check_winner
 
-  if check_winner
+  winner_info = check_winner
+
+  if winner_info
     game_on = false
+    puts winner_info
   else 
     puts check_draw
     change_active_user(@current_user)
