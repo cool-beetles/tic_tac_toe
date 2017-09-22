@@ -2,27 +2,26 @@
 require '../tictactoe.rb'
 
 game_on = true
-initial_parametrs
+game = Game.new
 
 while game_on
   puts "Player #{@current_user}"
   puts "Take square, e.g. a1, b3:"
   selected_move = gets.chomp
-  puts check_taken_square(selected_move)
-  check_taken_square(selected_move)
-  puts save_move(selected_move)
+  puts game.check_taken_square(selected_move)
+  puts game.save_move(selected_move)
 
-  winner_info = check_winner
+  winner_info = game.check_winner
 
   if winner_info
     game_on = false
     puts winner_info
   else 
-    puts check_draw
-    change_active_user(@current_user)
+    puts game.check_draw
+    game.change_active_user(@current_user)
   end
 
-  puts display_board
+  puts game.display_board
 end
 
 puts "End of the game"
