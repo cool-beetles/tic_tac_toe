@@ -58,8 +58,6 @@ class Game
   end
 
   def display_board
-  "#{@board["a1"]} #{@board["a2"]}  #{@board["a3"]} 
-  #{@board["b1"]} #{@board["b2"]}  #{@board["b3"]}
-  #{@board["c1"]} #{@board["c2"]}  #{@board["c3"]}"
+  "\n 1 2 3 \na#{@board["a1"]} #{@board["a2"]} #{@board["a3"]}\nb#{@board["b1"]} #{@board["b2"]} #{@board["b3"]}\nc#{@board["c1"]} #{@board["c2"]} #{@board["c3"]}"
   end
 end
