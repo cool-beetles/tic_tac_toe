@@ -46,11 +46,7 @@ class Game
   end
 
   def check_draw
-    if ((@board["a1"] != ("")) && (@board["a2"] != ("")) && (@board["a3"] != ("")) &&
-      (@board["b1"] != ("")) && (@board["b2"] != ("")) && (@board["b3"] != ("")) &&
-      (@board["c1"] != ("")) && (@board["c2"] != ("")) && (@board["c3"] != ("")))
-      "It's a draw"
-    end
+    "It's a draw" if @board.all? {|key, value| value != ""}
   end
 
   def change_active_user
