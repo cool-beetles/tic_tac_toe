@@ -20,9 +20,7 @@ class Game
   end
 
   def check_taken_square(selected_move)    
-    if (@board[selected_move] == "X") || (@board[selected_move] == "O")
-      "Ivalid move!"
-    end
+    "Ivalid move!" if (@board[selected_move] == "X") || (@board[selected_move] == "O")
   end
 
   def save_move(selected_move)
@@ -55,7 +53,7 @@ class Game
     end
   end
 
-  def change_active_user(current_user)
+  def change_active_user
     if @current_user == @players[0]
       @current_user = @players[1]
     else

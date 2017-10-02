@@ -5,11 +5,11 @@ game_on = true
 game = Game.new
 
 while game_on
-  puts "Player #{@current_user}"
+  puts "Player" + game.current_user
   puts "Take square, e.g. a1, b3:"
   selected_move = gets.chomp
   puts game.check_taken_square(selected_move)
-  puts game.save_move(selected_move)
+  game.save_move(selected_move)
 
   winner_info = game.check_winner
 
@@ -18,7 +18,7 @@ while game_on
     puts winner_info
   else 
     puts game.check_draw
-    game.change_active_user(@current_user)
+    game.change_active_user
   end
 
   puts game.display_board
