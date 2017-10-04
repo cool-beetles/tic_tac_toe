@@ -32,16 +32,17 @@ class Game
   end
 
   def check_winner
-    if ((@board["a1"] == @current_user && @board["a2"] == @current_user && @board["a3"] == @current_user) ||
-      (@board["b1"] == @current_user && @board["b2"] == @current_user && @board["b3"] == @current_user) ||
-      (@board["c1"] == @current_user && @board["c2"] == @current_user && @board["c3"] == @current_user) ||
-      (@board["a2"] == @current_user && @board["b2"] == @current_user && @board["c2"] == @current_user) ||
-      (@board["a1"] == @current_user && @board["b1"] == @current_user && @board["c1"] == @current_user) ||
-      (@board["a1"] == @current_user && @board["a2"] == @current_user && @board["a3"] == @current_user) ||
-      (@board["a3"] == @current_user && @board["b3"] == @current_user && @board["c3"] == @current_user) ||
-      (@board["a1"] == @current_user && @board["b2"] == @current_user && @board["c3"] == @current_user) ||
-      (@board["c1"] == @current_user && @board["b2"] == @current_user && @board["a3"] == @current_user))
-      "The winner is: #{@current_user}" 
+    win_combinations = [[@board["a1"], @board["a2"], @board["a3"]],
+    [@board["b1"], @board["b2"], @board["b3"]],
+    [@board["c1"], @board["c2"], @board["c3"]],
+    [@board["a1"], @board["b1"], @board["c1"]],
+    [@board["a2"], @board["b2"], @board["c2"]],
+    [@board["a3"], @board["b3"], @board["c3"]],
+    [@board["a1"], @board["b2"], @board["c3"]],
+    [@board["c1"], @board["b2"], @board["a3"]]]
+    
+    if win_combinations.any? {|row| row.all? {|move| @board[move] == @current_user}}
+      "The winner is: #{@current_user}"
     end
   end
 
@@ -50,11 +51,7 @@ class Game
   end
 
   def change_active_user
-    if @current_user == @players[0]
-      @current_user = @players[1]
-    else
-      @current_user = @players[0]
-    end
+    @current_user == @players[0] ? @current_user = @players[1] : @current_user = @players[0]
   end
 
   def display_board
