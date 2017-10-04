@@ -41,7 +41,7 @@ class Game
     [@board["a1"], @board["b2"], @board["c3"]],
     [@board["c1"], @board["b2"], @board["a3"]]]
     
-    if win_combinations.any? {|row| row.all? {|move| @board[move] == @current_user}}
+    if win_combinations.each {|row| row.all? {|move| @board[move] == @current_user}}
       "The winner is: #{@current_user}"
     end
   end
