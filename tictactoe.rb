@@ -35,7 +35,7 @@ class Game
   end
 
   def change_active_user
-    @current_user == @players[0] ? @current_user = @players[1] : @current_user = @players[0]
+    current_user == @players[0] ? @current_user = @players[1] : @current_user = @players[0]
   end
 
   def display_board
@@ -58,8 +58,7 @@ class Game
     [@board["a1"], @board["b2"], @board["c3"]],
     [@board["c1"], @board["b2"], @board["a3"]]]
     
-    if win_combinations.any? {|row| row.all? {|move| @board[move] == @current_user}}
-    end
+    win_combinations.any? {|row| row.all? {|move| move == @current_user}}
   end
 
   def check_draw
