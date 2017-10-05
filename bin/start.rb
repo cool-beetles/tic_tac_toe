@@ -16,15 +16,13 @@ while game_on
 
   winner_info = game.display_final_status
 
-    if winner_info
-      game_on = false
-      puts winner_info
-    else 
-      game.change_active_user
-    end
-
-    puts game.display_board
-
+  if winner_info
+    game_on = false
+    puts winner_info
+  else 
+    game.change_active_user
+  end
+  puts game.display_board
 end
 
 puts "End of the game"
