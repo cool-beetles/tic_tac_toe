@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
-require '../tictactoe.rb'
+
+require '../game.rb'
 
 game_on = true
 game = Game.new
@@ -7,11 +8,11 @@ game = Game.new
 while game_on
   puts "Player" + game.current_user
   puts "Take square, e.g. a1, b3:"
-  selected_move = gets.chomp
+  selected_square = gets.chomp
 
-  if !(game.save_move(selected_move))
+  unless game.save_move(selected_square)
     puts "Ups.. Try again. Allowed moves: a1, a2, a3, b1, b2, b3, c1, c2, c3"
-    !(game.change_active_user)
+    game.change_active_user
   end
 
   winner_info = game.display_final_status
