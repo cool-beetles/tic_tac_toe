@@ -32,19 +32,8 @@ class Board
     @squares.values.all? { |value| value != "" }
   end
 
-  def board_filled_in_with
-    win_combinations = [[@squares["a1"], @squares["a2"], @squares["a3"]],
-      [@squares["b1"], @squares["b2"], @squares["b3"]],
-      [@squares["c1"], @squares["c2"], @squares["c3"]],
-      [@squares["a1"], @squares["b1"], @squares["c1"]],
-      [@squares["a2"], @squares["b2"], @squares["c2"]],
-      [@squares["a3"], @squares["b3"], @squares["c3"]],
-      [@squares["a1"], @squares["b2"], @squares["c3"]],
-      [@squares["c1"], @squares["b2"], @squares["a3"]]]
-  end
-
-  def square_filled_in_with(var, value)
-    var.any? { |row| row.all? { |move| move == value } }
+  def board_filled_in_with(row, value)
+    row.all? { |move| @squares[move] == value }
   end
 
   def display
