@@ -5,7 +5,9 @@ require '../game.rb'
 game_on = true
 game = Game.new
 
+puts "Hello! It's TicTacToe game. Let's play!"
 while game_on
+  puts "\n"
   puts "Player" + game.current_user
   puts "Take square, e.g. a1, b3:"
   selected_square = gets.chomp
@@ -19,11 +21,11 @@ while game_on
 
   if winner_info
     game_on = false
-    puts winner_info
   else 
     game.change_active_user
   end
+
   puts game.display_board
 end
 
-puts "End of the game"
+puts "\n" + winner_info + " :)" + "\nEnd of the game. Thank You!"

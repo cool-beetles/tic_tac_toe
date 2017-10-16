@@ -37,9 +37,10 @@ class Board
   end
 
   def display
-    "\n 1 2 3" +
-    "\na#{@squares["a1"]} #{@squares["a2"]} #{@squares["a3"]}" +
-    "\nb#{@squares["b1"]} #{@squares["b2"]} #{@squares["b3"]}" +
-    "\nc#{@squares["c1"]} #{@squares["c2"]} #{@squares["c3"]}"
+    "\n  |1|2|3|" +
+    "\n|a|#{@squares["a1"]} #{@squares["a2"]} #{@squares["a3"]}" +
+    "\n|b|#{@squares["b1"]} #{@squares["b2"]} #{@squares["b3"]}" +
+    "\n|c|#{@squares["c1"]} #{@squares["c2"]} #{@squares["c3"]}" +
+    "\n"
   end
 end
