@@ -21,7 +21,7 @@ class Board
   end
 
   def check_taken_square(selected_square)
-    (@squares[selected_square] == "X") || (@squares[selected_square] == "O")
+    @squares[selected_square] != ""
   end
 
   def check_existing_square(selected_square)
@@ -29,7 +29,7 @@ class Board
   end
 
   def full?
-    @squares.all? { |key, value| value != "" }
+    @squares.values.all? { |value| value != "" }
   end
 
   def board_filled_in_with
@@ -41,8 +41,10 @@ class Board
       [@squares["a3"], @squares["b3"], @squares["c3"]],
       [@squares["a1"], @squares["b2"], @squares["c3"]],
       [@squares["c1"], @squares["b2"], @squares["a3"]]]
+  end
 
-    win_combinations.any? { |row| row.all? { |move| move == @current_user } }
+  def square_filled_in_with(var, value)
+    var.any? { |row| row.all? { |move| move == value } }
   end
 
   def display

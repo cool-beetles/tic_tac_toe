@@ -11,7 +11,7 @@ class Game
   end
 
   def save_move(selected_square)
-    if @board.check_existing_square(selected_square) && @board.check_taken_square(selected_square) == false
+    if @board.check_existing_square(selected_square) && !@board.check_taken_square(selected_square)
       @board.change_square(selected_square, current_user) 
     end   
   end
@@ -35,7 +35,8 @@ class Game
   private
 
   def check_winner
-    @board.board_filled_in_with
+    var = @board.board_filled_in_with
+    @board.square_filled_in_with(var, current_user)
   end
 
   def check_draw
