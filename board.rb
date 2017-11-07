@@ -4,15 +4,15 @@ class Board
 
   def initialize
     @squares = {
-      "a1" => "",
-      "a2" => "",
-      "a3" => "",
-      "b1" => "",
-      "b2" => "",
-      "b3" => "",
-      "c1" => "",
-      "c2" => "",
-      "c3" => "" 
+      "a1" => " ",
+      "a2" => " ",
+      "a3" => " ",
+      "b1" => " ",
+      "b2" => " ",
+      "b3" => " ",
+      "c1" => " ",
+      "c2" => " ",
+      "c3" => " " 
     }
   end
   
@@ -21,7 +21,7 @@ class Board
   end
 
   def check_taken_square(selected_square)
-    @squares[selected_square] != ""
+    @squares[selected_square] != " "
   end
 
   def check_existing_square(selected_square)
@@ -29,7 +29,7 @@ class Board
   end
 
   def full?
-    @squares.values.all? { |value| value != "" }
+    @squares.values.all? { |value| value != " " }
   end
 
   def board_filled_in_with(row, value)
